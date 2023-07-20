@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:healthy_care/src/app/view/page/widget/home_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget/login_screen.dart';
+import 'package:healthy_care/src/app/view/page/home/home_page.dart';
+import 'package:healthy_care/src/app/view/page/login/login_page.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     bool? passToggle = true;
@@ -90,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const HomeScreen();
+                        return HomePage();
                       }));
                     },
                     child: const Padding(
@@ -123,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const LoginScreen();
+                        return const LoginPage();
                       }));
                     },
                     child: const Text(

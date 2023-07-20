@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_care/src/app/bloc/login/login_bloc.dart';
 import 'package:healthy_care/src/app/resource/user_repository.dart';
-import 'package:healthy_care/src/app/view/page/widget/navbar_roots.dart';
-import 'package:healthy_care/src/app/view/page/widget/signup_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget/welcome_screen.dart';
+import 'package:healthy_care/src/app/view/page/navbar_roots_main.dart';
+import 'package:healthy_care/src/app/view/page/sign_up/sign_up_page.dart';
+import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/navbar_roots.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/signup_screen.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/welcome_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginPageState extends State<LoginPage> {
   bool passToggle = true;
   // final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
@@ -40,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             if (user!.authentication.isNotEmpty) {
               UserRepository.instance.saveUserRepository(user.authentication);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const NavBarRoots();
+                return const NavBarRootsMain();
               }));
               // Navigator.push(context, HomeRestaurant.route(user: user));
             }
@@ -145,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const SignUpScreen();
+                          return const SignUpPage();
                         }));
                       },
                       child: const Text(
@@ -168,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const WelcomeScreen();
+                          return const WelcomePage();
                         }));
                       },
                       child: const Text(

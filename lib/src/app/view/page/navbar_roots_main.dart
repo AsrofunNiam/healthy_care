@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:healthy_care/src/app/view/page/widget/home_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget/setting_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget/welcome_screen.dart';
+import 'package:healthy_care/src/app/view/page/home/home_page.dart';
+import 'package:healthy_care/src/app/view/page/setting/setting-page.dart';
+import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/home_screen.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/setting_screen.dart';
+import 'package:healthy_care/src/app/view/page/widget_test/welcome_screen.dart';
 
-class NavBarRoots extends StatefulWidget {
-  const NavBarRoots({super.key});
+class NavBarRootsMain extends StatefulWidget {
+  const NavBarRootsMain({super.key});
 
   @override
-  State<NavBarRoots> createState() => _NavBarRootsState();
+  State<NavBarRootsMain> createState() => _NavBarRootsMainState();
 }
 
-class _NavBarRootsState extends State<NavBarRoots> {
+class _NavBarRootsMainState extends State<NavBarRootsMain> {
   int _selectedIndex = 0;
   final _screens = [
-    const HomeScreen(),
-    const SettingsScreen(),
-    const WelcomeScreen(),
-    const SettingsScreen(),
+    HomePage(),
+    const SettingPage(),
+    const WelcomePage(),
+    const SettingPage(),
   ];
   @override
   Widget build(BuildContext context) {
