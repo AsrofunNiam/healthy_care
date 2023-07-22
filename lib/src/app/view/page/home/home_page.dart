@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/home/widget/home_screen_test.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  HomePage({super.key, required this.user});
+
+  final Authentication user;
 
   final List symptoms = [
     'Temperature',
@@ -33,10 +36,11 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       padding: const EdgeInsets.only(top: 0),
       child: Container(
-        color: Colors.white,
-        child: HomeScreenTest(
-            symptoms: symptoms, listDoctorImages: _listDoctorImages),
-      ),
+          color: Colors.white,
+          child: HomeScreenTest.prepare(
+              user: user,
+              listDoctorImages: _listDoctorImages,
+              symptoms: symptoms)),
     );
   }
 }

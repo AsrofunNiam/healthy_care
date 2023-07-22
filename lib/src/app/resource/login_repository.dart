@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:healthy_care/src/app/model/authentication.dart';
-import 'package:healthy_care/src/app/util/base_api.dart';
+import 'package:healthy_care/src/app/resource/base_api.dart';
 import 'package:healthy_care/src/app/util/exception.dart';
 
 class LoginRepository extends Repository {

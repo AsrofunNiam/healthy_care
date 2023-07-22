@@ -1,15 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_care/src/app/bloc/bloc/clinic_list_query_bloc.dart';
+import 'package:healthy_care/src/app/model/clinic_list.dart';
 
-class ClinicScreen extends StatelessWidget {
-  const ClinicScreen({
-    super.key,
-    required this.listDoctorImages,
-    required this.index,
-  });
+class ClinicScreen extends StatefulWidget {
+  const ClinicScreen._(
+      {required this.listDoctorImages,
+      required this.index,
+      required this.clinicList});
 
   final List listDoctorImages;
   final int index;
+  final ClinicList clinicList;
 
+  static Widget prepare({
+    required ClinicList clinicList,
+    required List listDoctorImages,
+    required int index,
+  }) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ClinicListQueryBloc()..add(const ClinicListQueryEvent.get()),
+        ),
+        // BlocProvider(
+        //   create: (context) => SaveTokenBloc(),
+        // )
+      ],
+      child: ClinicScreen._(
+          clinicList: clinicList,
+          index: index,
+          listDoctorImages: listDoctorImages),
+    );
+  }
+
+  @override
+  State<ClinicScreen> createState() => _ClinicScreenState();
+}
+
+class _ClinicScreenState extends State<ClinicScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,14 +73,15 @@ class ClinicScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 35,
-                      backgroundImage: AssetImage(listDoctorImages[index]),
+                      backgroundImage: NetworkImage(
+                          widget.clinicList.clinicListAttribute!.photo!),
                     ),
                     const SizedBox(
                       height: 15,
                     ),
-                    const Text(
-                      'Clinic Hippokrates Medika',
-                      style: TextStyle(
+                    Text(
+                      'Clinic Name ${widget.clinicList.clinicListAttribute!.name}',
+                      style: const TextStyle(
                         fontSize: 23,
                         fontWeight: FontWeight.w500,
                         color: Colors.white,
@@ -59,9 +90,10 @@ class ClinicScreen extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    const Text(
-                      'Specialist Outlet',
-                      style: TextStyle(
+                    Text(
+                      'Specialist ${widget.clinicList.clinicListAttribute!.name}',
+                      maxLines: 1,
+                      style: const TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
@@ -133,38 +165,38 @@ class ClinicScreen extends StatelessWidget {
               InkWell(
                 // splashColor: Colors.red, // wait to activated
                 // hoverColor: Colors.red,
-                child: const Row(
+                child: Row(
                   children: [
-                    Text(
+                    const Text(
                       'Reviews Outlet',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Color.fromARGB(255, 105, 105, 105)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: Colors.amber,
                       size: 20,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: Colors.amber,
                       size: 20,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
-                      '4.7',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                      '${widget.clinicList.id}',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: 16),
                     ),
-                    Spacer(),
-                    Padding(
+                    const Spacer(),
+                    const Padding(
                       padding: EdgeInsets.only(right: 10),
                       child: Icon(
                         Icons.arrow_forward_ios_outlined,
@@ -193,7 +225,7 @@ class ClinicScreen extends StatelessWidget {
                 height: 140,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: listDoctorImages.length,
+                  itemCount: widget.listDoctorImages.length,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.all(10),
@@ -215,7 +247,7 @@ class ClinicScreen extends StatelessWidget {
                               leading: CircleAvatar(
                                 radius: 25,
                                 backgroundImage:
-                                    AssetImage(listDoctorImages[index]),
+                                    AssetImage(widget.listDoctorImages[index]),
                               ),
                               title: const Text(
                                 'Dr. Doctor Name',

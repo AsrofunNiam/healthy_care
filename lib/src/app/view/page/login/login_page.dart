@@ -6,9 +6,6 @@ import 'package:healthy_care/src/app/resource/user_repository.dart';
 import 'package:healthy_care/src/app/view/page/navbar_roots_main.dart';
 import 'package:healthy_care/src/app/view/page/sign_up/sign_up_page.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/navbar_roots.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/signup_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/welcome_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -42,9 +39,7 @@ class _LoginPageState extends State<LoginPage> {
           success: (user) {
             if (user!.authentication.isNotEmpty) {
               UserRepository.instance.saveUserRepository(user.authentication);
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const NavBarRootsMain();
-              }));
+              Navigator.push(context, NavBarRootsMain.route(user: user));
               // Navigator.push(context, HomeRestaurant.route(user: user));
             }
           },

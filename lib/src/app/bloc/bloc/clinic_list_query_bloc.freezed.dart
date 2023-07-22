@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_bloc.dart';
+part of 'clinic_list_query_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$LoginState {
+mixin _$ClinicListQueryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Authentication? token) success,
+    required TResult Function(List<ClinicList> clinicList) loaded,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Authentication? token)? success,
+    TResult? Function(List<ClinicList> clinicList)? loaded,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Authentication? token)? success,
+    TResult Function(List<ClinicList> clinicList)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -45,7 +45,7 @@ mixin _$LoginState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ mixin _$LoginState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ mixin _$LoginState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
+    TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -69,16 +69,17 @@ mixin _$LoginState {
 }
 
 /// @nodoc
-abstract class $LoginStateCopyWith<$Res> {
-  factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res, LoginState>;
+abstract class $ClinicListQueryStateCopyWith<$Res> {
+  factory $ClinicListQueryStateCopyWith(ClinicListQueryState value,
+          $Res Function(ClinicListQueryState) then) =
+      _$ClinicListQueryStateCopyWithImpl<$Res, ClinicListQueryState>;
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
-    implements $LoginStateCopyWith<$Res> {
-  _$LoginStateCopyWithImpl(this._value, this._then);
+class _$ClinicListQueryStateCopyWithImpl<$Res,
+        $Val extends ClinicListQueryState>
+    implements $ClinicListQueryStateCopyWith<$Res> {
+  _$ClinicListQueryStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +96,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_Initial>
+    extends _$ClinicListQueryStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -108,7 +109,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'LoginState.initial()';
+    return 'ClinicListQueryState.initial()';
   }
 
   @override
@@ -125,7 +126,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Authentication? token) success,
+    required TResult Function(List<ClinicList> clinicList) loaded,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -136,7 +137,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Authentication? token)? success,
+    TResult? Function(List<ClinicList> clinicList)? loaded,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -147,7 +148,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Authentication? token)? success,
+    TResult Function(List<ClinicList> clinicList)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -162,7 +163,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -173,7 +174,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -184,7 +185,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
+    TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -195,7 +196,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements LoginState {
+abstract class _Initial implements ClinicListQueryState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -208,7 +209,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_Loading>
+    extends _$ClinicListQueryStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -221,7 +222,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'LoginState.loading()';
+    return 'ClinicListQueryState.loading()';
   }
 
   @override
@@ -238,7 +239,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Authentication? token) success,
+    required TResult Function(List<ClinicList> clinicList) loaded,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -249,7 +250,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Authentication? token)? success,
+    TResult? Function(List<ClinicList> clinicList)? loaded,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -260,7 +261,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Authentication? token)? success,
+    TResult Function(List<ClinicList> clinicList)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -275,7 +276,7 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -286,7 +287,7 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -297,7 +298,7 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
+    TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -308,7 +309,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements LoginState {
+abstract class _Loading implements ClinicListQueryState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -318,14 +319,12 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({Authentication? token});
-
-  $AuthenticationCopyWith<$Res>? get token;
+  $Res call({List<ClinicList> clinicList});
 }
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_Success>
+    extends _$ClinicListQueryStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
@@ -333,40 +332,34 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = freezed,
+    Object? clinicList = null,
   }) {
     return _then(_$_Success(
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as Authentication?,
+      null == clinicList
+          ? _value._clinicList
+          : clinicList // ignore: cast_nullable_to_non_nullable
+              as List<ClinicList>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AuthenticationCopyWith<$Res>? get token {
-    if (_value.token == null) {
-      return null;
-    }
-
-    return $AuthenticationCopyWith<$Res>(_value.token!, (value) {
-      return _then(_value.copyWith(token: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({this.token});
+  const _$_Success(final List<ClinicList> clinicList)
+      : _clinicList = clinicList;
 
+  final List<ClinicList> _clinicList;
   @override
-  final Authentication? token;
+  List<ClinicList> get clinicList {
+    if (_clinicList is EqualUnmodifiableListView) return _clinicList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_clinicList);
+  }
 
   @override
   String toString() {
-    return 'LoginState.success(token: $token)';
+    return 'ClinicListQueryState.loaded(clinicList: $clinicList)';
   }
 
   @override
@@ -374,11 +367,13 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.token, token) || other.token == token));
+            const DeepCollectionEquality()
+                .equals(other._clinicList, _clinicList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, token);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_clinicList));
 
   @JsonKey(ignore: true)
   @override
@@ -391,10 +386,10 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Authentication? token) success,
+    required TResult Function(List<ClinicList> clinicList) loaded,
     required TResult Function(String error) error,
   }) {
-    return success(token);
+    return loaded(clinicList);
   }
 
   @override
@@ -402,10 +397,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Authentication? token)? success,
+    TResult? Function(List<ClinicList> clinicList)? loaded,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(token);
+    return loaded?.call(clinicList);
   }
 
   @override
@@ -413,12 +408,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Authentication? token)? success,
+    TResult Function(List<ClinicList> clinicList)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(token);
+    if (loaded != null) {
+      return loaded(clinicList);
     }
     return orElse();
   }
@@ -428,10 +423,10 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
   }) {
-    return success(this);
+    return loaded(this);
   }
 
   @override
@@ -439,10 +434,10 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
   }) {
-    return success?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -450,21 +445,21 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
+    TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class _Success implements LoginState {
-  const factory _Success({final Authentication? token}) = _$_Success;
+abstract class _Success implements ClinicListQueryState {
+  const factory _Success(final List<ClinicList> clinicList) = _$_Success;
 
-  Authentication? get token;
+  List<ClinicList> get clinicList;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -480,7 +475,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_Error>
+    extends _$ClinicListQueryStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -509,7 +504,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'LoginState.error(error: $error)';
+    return 'ClinicListQueryState.error(error: $error)';
   }
 
   @override
@@ -534,7 +529,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Authentication? token) success,
+    required TResult Function(List<ClinicList> clinicList) loaded,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -545,7 +540,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Authentication? token)? success,
+    TResult? Function(List<ClinicList> clinicList)? loaded,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -556,7 +551,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Authentication? token)? success,
+    TResult Function(List<ClinicList> clinicList)? loaded,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -571,7 +566,7 @@ class _$_Error implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Success value) loaded,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -582,7 +577,7 @@ class _$_Error implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Success value)? loaded,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -593,7 +588,7 @@ class _$_Error implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
+    TResult Function(_Success value)? loaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -604,7 +599,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements LoginState {
+abstract class _Error implements ClinicListQueryState {
   const factory _Error(final String error) = _$_Error;
 
   String get error;
@@ -614,178 +609,117 @@ abstract class _Error implements LoginState {
 }
 
 /// @nodoc
-mixin _$LoginEvent {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+mixin _$ClinicListQueryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) submit,
+    required TResult Function() get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? submit,
+    TResult? Function()? get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? submit,
+    TResult Function()? get,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_Get value) get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Get value)? get,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Submit value)? submit,
+    TResult Function(_Get value)? get,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $LoginEventCopyWith<LoginEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginEventCopyWith<$Res> {
-  factory $LoginEventCopyWith(
-          LoginEvent value, $Res Function(LoginEvent) then) =
-      _$LoginEventCopyWithImpl<$Res, LoginEvent>;
-  @useResult
-  $Res call({String email, String password});
+abstract class $ClinicListQueryEventCopyWith<$Res> {
+  factory $ClinicListQueryEventCopyWith(ClinicListQueryEvent value,
+          $Res Function(ClinicListQueryEvent) then) =
+      _$ClinicListQueryEventCopyWithImpl<$Res, ClinicListQueryEvent>;
 }
 
 /// @nodoc
-class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
-    implements $LoginEventCopyWith<$Res> {
-  _$LoginEventCopyWithImpl(this._value, this._then);
+class _$ClinicListQueryEventCopyWithImpl<$Res,
+        $Val extends ClinicListQueryEvent>
+    implements $ClinicListQueryEventCopyWith<$Res> {
+  _$ClinicListQueryEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_SubmitCopyWith<$Res> implements $LoginEventCopyWith<$Res> {
-  factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
-      __$$_SubmitCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String email, String password});
+abstract class _$$_GetCopyWith<$Res> {
+  factory _$$_GetCopyWith(_$_Get value, $Res Function(_$_Get) then) =
+      __$$_GetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SubmitCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$_Submit>
-    implements _$$_SubmitCopyWith<$Res> {
-  __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
+class __$$_GetCopyWithImpl<$Res>
+    extends _$ClinicListQueryEventCopyWithImpl<$Res, _$_Get>
+    implements _$$_GetCopyWith<$Res> {
+  __$$_GetCopyWithImpl(_$_Get _value, $Res Function(_$_Get) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_$_Submit(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$_Submit implements _Submit {
-  const _$_Submit({required this.email, required this.password});
-
-  @override
-  final String email;
-  @override
-  final String password;
+class _$_Get implements _Get {
+  const _$_Get();
 
   @override
   String toString() {
-    return 'LoginEvent.submit(email: $email, password: $password)';
+    return 'ClinicListQueryEvent.get()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Submit &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+        (other.runtimeType == runtimeType && other is _$_Get);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SubmitCopyWith<_$_Submit> get copyWith =>
-      __$$_SubmitCopyWithImpl<_$_Submit>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) submit,
+    required TResult Function() get,
   }) {
-    return submit(email, password);
+    return get();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? submit,
+    TResult? Function()? get,
   }) {
-    return submit?.call(email, password);
+    return get?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? submit,
+    TResult Function()? get,
     required TResult orElse(),
   }) {
-    if (submit != null) {
-      return submit(email, password);
+    if (get != null) {
+      return get();
     }
     return orElse();
   }
@@ -793,43 +727,32 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_Get value) get,
   }) {
-    return submit(this);
+    return get(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Get value)? get,
   }) {
-    return submit?.call(this);
+    return get?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Submit value)? submit,
+    TResult Function(_Get value)? get,
     required TResult orElse(),
   }) {
-    if (submit != null) {
-      return submit(this);
+    if (get != null) {
+      return get(this);
     }
     return orElse();
   }
 }
 
-abstract class _Submit implements LoginEvent {
-  const factory _Submit(
-      {required final String email,
-      required final String password}) = _$_Submit;
-
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SubmitCopyWith<_$_Submit> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _Get implements ClinicListQueryEvent {
+  const factory _Get() = _$_Get;
 }

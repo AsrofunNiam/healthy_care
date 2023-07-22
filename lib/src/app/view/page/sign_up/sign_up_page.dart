@@ -90,7 +90,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return HomePage();
+                        return const LoginPage();
                       }));
                     },
                     child: const Padding(

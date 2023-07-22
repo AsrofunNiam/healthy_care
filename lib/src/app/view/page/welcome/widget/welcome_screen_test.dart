@@ -26,10 +26,10 @@ class WelcomeScreenTest extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const NavBarRootsMain();
-                    }));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) {
+                    // return const NavBarRootsMain();
+                    // }));
                   },
                   child: const Text(
                     'SKIP',

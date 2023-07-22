@@ -1,28 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/home/home_page.dart';
 import 'package:healthy_care/src/app/view/page/setting/setting-page.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/home_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/setting_screen.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/welcome_screen.dart';
 
 class NavBarRootsMain extends StatefulWidget {
-  const NavBarRootsMain({super.key});
+  const NavBarRootsMain._({required this.user});
+  final Authentication user;
+
+  static Route<bool?> route({
+    Authentication? user,
+  }) {
+    return MaterialPageRoute(builder: (context) {
+      return NavBarRootsMain._(user: user!);
+      // return MultiBlocProvider(
+      //   providers: const [
+      //     // BlocProvider(
+      //     //   create: (context) =>
+      //     //       RestaurantsQueryBloc()..add(const RestaurantsQueryEvent.get()),
+      //     // ),
+      //     // BlocProvider(
+      //     //   create: (context) => SaveTokenBloc(),
+      //     // )
+      //   ],
+      //   child: NavBarRootsMain._(user: user),
+      // );
+    });
+  }
 
   @override
   State<NavBarRootsMain> createState() => _NavBarRootsMainState();
 }
 
 class _NavBarRootsMainState extends State<NavBarRootsMain> {
-  int _selectedIndex = 0;
-  final _screens = [
-    HomePage(),
-    const SettingPage(),
-    const WelcomePage(),
-    const SettingPage(),
-  ];
   @override
   Widget build(BuildContext context) {
+    int _selectedIndex = 0;
+    final _screens = [
+      HomePage(user: widget.user),
+      SettingPage(user: widget.user),
+      const WelcomePage(),
+      SettingPage(user: widget.user),
+    ];
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: _screens[_selectedIndex],

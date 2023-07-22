@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_care/src/app/bloc/bloc/clinic_list_query_bloc.dart';
+import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 
-class SettingScreenTest extends StatelessWidget {
-  const SettingScreenTest({
-    super.key,
-  });
+class SettingScreenTest extends StatefulWidget {
+  const SettingScreenTest._({required this.user});
 
+  final Authentication user;
+
+  static Widget prepare({required Authentication user}) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ClinicListQueryBloc()..add(const ClinicListQueryEvent.get()),
+        ),
+        // BlocProvider(
+        //   create: (context) => SaveTokenBloc(),
+        // )
+      ],
+      child: SettingScreenTest._(user: user),
+    );
+  }
+
+  @override
+  State<SettingScreenTest> createState() => _SettingScreenTestState();
+}
+
+class _SettingScreenTestState extends State<SettingScreenTest> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,17 +47,17 @@ class SettingScreenTest extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const SizedBox(
+        SizedBox(
           child: ListTile(
-            leading: CircleAvatar(
+            leading: const CircleAvatar(
               radius: 30,
               backgroundImage: AssetImage('assets/images/person.png'),
             ),
             title: Text(
-              'Asrofun Niam',
-              style: TextStyle(fontSize: 20),
+              '${widget.user.user?.email}',
+              style: const TextStyle(fontSize: 20),
             ),
-            subtitle: Text('Profile User'),
+            subtitle: const Text('Profile User'),
           ),
         ),
         const Divider(

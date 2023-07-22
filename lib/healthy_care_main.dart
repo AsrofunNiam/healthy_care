@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_care/src/app/bloc/login/login_bloc.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/welcome_screen.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
