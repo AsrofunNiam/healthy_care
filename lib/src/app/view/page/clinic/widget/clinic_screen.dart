@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthy_care/src/app/bloc/bloc/clinic_list_query_bloc.dart';
+import 'package:healthy_care/src/app/bloc/clinic_list/clinic_list_query_bloc.dart';
 import 'package:healthy_care/src/app/model/clinic_list.dart';
 
 class ClinicScreen extends StatefulWidget {
@@ -80,7 +80,9 @@ class _ClinicScreenState extends State<ClinicScreen> {
                       height: 15,
                     ),
                     Text(
-                      'Clinic Name ${widget.clinicList.clinicListAttribute!.name}',
+                      textAlign: TextAlign.center,
+                      maxLines: 1,
+                      '${widget.clinicList.clinicListAttribute!.name}',
                       style: const TextStyle(
                         fontSize: 23,
                         fontWeight: FontWeight.w500,
@@ -91,7 +93,8 @@ class _ClinicScreenState extends State<ClinicScreen> {
                       height: 5,
                     ),
                     Text(
-                      'Specialist ${widget.clinicList.clinicListAttribute!.name}',
+                      textAlign: TextAlign.center,
+                      '${widget.clinicList.clinicListAttribute!.description}',
                       maxLines: 1,
                       style: const TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
@@ -191,7 +194,7 @@ class _ClinicScreenState extends State<ClinicScreen> {
                       width: 5,
                     ),
                     Text(
-                      '${widget.clinicList.id}',
+                      '${widget.clinicList.clinicListAttribute?.rating}',
                       style: const TextStyle(
                           fontWeight: FontWeight.w500, fontSize: 16),
                     ),

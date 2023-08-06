@@ -23,15 +23,15 @@ class _LoginPageState extends State<LoginPage> {
   //   errorText: pleaseFillOutThisField,
   // );
 
+  void getLogin() {
+    late LoginEvent event;
+    event = LoginEvent.submit(
+        email: _emailController.text, password: _passwordController.text);
+    context.read<LoginBloc>().add(event);
+  }
+
   @override
   Widget build(BuildContext context) {
-    void getLogin() {
-      late LoginEvent event;
-      event = LoginEvent.submit(
-          email: _emailController.text, password: _passwordController.text);
-      context.read<LoginBloc>().add(event);
-    }
-
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         state.maybeWhen(

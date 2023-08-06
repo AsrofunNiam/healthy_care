@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_care/src/app/bloc/create_user/create_user_bloc.dart';
 import 'package:healthy_care/src/app/bloc/login/login_bloc.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -29,6 +30,9 @@ class HealthyCareMain extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ThemeModeBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CreateUserBloc(),
         ),
       ],
       child: BlocBuilder<ThemeModeBloc, ThemeMode>(

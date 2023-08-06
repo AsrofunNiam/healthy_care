@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthy_care/src/app/bloc/bloc/clinic_list_query_bloc.dart';
+import 'package:healthy_care/src/app/bloc/clinic_list/clinic_list_query_bloc.dart';
 import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 

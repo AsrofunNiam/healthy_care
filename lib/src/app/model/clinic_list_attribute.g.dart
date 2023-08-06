@@ -19,6 +19,7 @@ _$_ClinicListAttribute _$$_ClinicListAttributeFromJson(
       publishedAt: json['publishedAt'] as String?,
       photo: json['photo'] as String?,
       userId: json['userId'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ClinicListAttributeToJson(
@@ -34,4 +35,5 @@ Map<String, dynamic> _$$_ClinicListAttributeToJson(
       'publishedAt': instance.publishedAt,
       'photo': instance.photo,
       'userId': instance.userId,
+      'rating': instance.rating,
     };

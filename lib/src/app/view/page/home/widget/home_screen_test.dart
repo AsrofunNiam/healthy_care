@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthy_care/src/app/bloc/bloc/clinic_list_query_bloc.dart';
+import 'package:healthy_care/src/app/bloc/clinic_list/clinic_list_query_bloc.dart';
 import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/clinic/clinic_page.dart';
 
@@ -262,15 +262,18 @@ class _HomeScreenTestState extends State<HomeScreenTest> {
                               //     '${clinicList[index].clinicListAttribute?.photo}'),
                             ),
                             Text(
-                              'Clinic ${clinicList[index].clinicListAttribute?.name}',
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              '${clinicList[index].clinicListAttribute?.name}',
                               style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                   color: Color.fromARGB(255, 73, 73, 73)),
                             ),
                             Text(
-                              '${clinicList[index].clinicListAttribute?.description}',
+                              textAlign: TextAlign.center,
                               maxLines: 1,
+                              '${clinicList[index].clinicListAttribute?.description}',
                               style: const TextStyle(
                                   fontSize: 15,
                                   color: Color.fromARGB(255, 80, 79, 79)),
@@ -286,7 +289,7 @@ class _HomeScreenTestState extends State<HomeScreenTest> {
                                   width: 7,
                                 ),
                                 Text(
-                                  '${clinicList[index].id}',
+                                  '${clinicList[index].clinicListAttribute?.rating}',
                                   style: const TextStyle(
                                       color: Color.fromARGB(255, 80, 79, 79)),
                                 )

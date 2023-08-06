@@ -30,6 +30,7 @@ mixin _$ClinicListAttribute {
   String? get publishedAt => throw _privateConstructorUsedError;
   String? get photo => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +54,8 @@ abstract class $ClinicListAttributeCopyWith<$Res> {
       String? updatedAt,
       String? publishedAt,
       String? photo,
-      String? userId});
+      String? userId,
+      double? rating});
 }
 
 /// @nodoc
@@ -79,6 +81,7 @@ class _$ClinicListAttributeCopyWithImpl<$Res, $Val extends ClinicListAttribute>
     Object? publishedAt = freezed,
     Object? photo = freezed,
     Object? userId = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       name: freezed == name
@@ -121,6 +124,10 @@ class _$ClinicListAttributeCopyWithImpl<$Res, $Val extends ClinicListAttribute>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -143,7 +150,8 @@ abstract class _$$_ClinicListAttributeCopyWith<$Res>
       String? updatedAt,
       String? publishedAt,
       String? photo,
-      String? userId});
+      String? userId,
+      double? rating});
 }
 
 /// @nodoc
@@ -167,6 +175,7 @@ class __$$_ClinicListAttributeCopyWithImpl<$Res>
     Object? publishedAt = freezed,
     Object? photo = freezed,
     Object? userId = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_$_ClinicListAttribute(
       name: freezed == name
@@ -209,6 +218,10 @@ class __$$_ClinicListAttributeCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -226,7 +239,8 @@ class _$_ClinicListAttribute extends _ClinicListAttribute {
       this.updatedAt,
       this.publishedAt,
       this.photo,
-      this.userId})
+      this.userId,
+      this.rating})
       : super._();
 
   factory _$_ClinicListAttribute.fromJson(Map<String, dynamic> json) =>
@@ -252,10 +266,12 @@ class _$_ClinicListAttribute extends _ClinicListAttribute {
   final String? photo;
   @override
   final String? userId;
+  @override
+  final double? rating;
 
   @override
   String toString() {
-    return 'ClinicListAttribute(name: $name, description: $description, latitude: $latitude, longitude: $longitude, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, publishedAt: $publishedAt, photo: $photo, userId: $userId)';
+    return 'ClinicListAttribute(name: $name, description: $description, latitude: $latitude, longitude: $longitude, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, publishedAt: $publishedAt, photo: $photo, userId: $userId, rating: $rating)';
   }
 
   @override
@@ -278,13 +294,25 @@ class _$_ClinicListAttribute extends _ClinicListAttribute {
             (identical(other.publishedAt, publishedAt) ||
                 other.publishedAt == publishedAt) &&
             (identical(other.photo, photo) || other.photo == photo) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.rating, rating) || other.rating == rating));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, latitude,
-      longitude, address, createdAt, updatedAt, publishedAt, photo, userId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      description,
+      latitude,
+      longitude,
+      address,
+      createdAt,
+      updatedAt,
+      publishedAt,
+      photo,
+      userId,
+      rating);
 
   @JsonKey(ignore: true)
   @override
@@ -312,7 +340,8 @@ abstract class _ClinicListAttribute extends ClinicListAttribute {
       final String? updatedAt,
       final String? publishedAt,
       final String? photo,
-      final String? userId}) = _$_ClinicListAttribute;
+      final String? userId,
+      final double? rating}) = _$_ClinicListAttribute;
   _ClinicListAttribute._() : super._();
 
   factory _ClinicListAttribute.fromJson(Map<String, dynamic> json) =
@@ -338,6 +367,8 @@ abstract class _ClinicListAttribute extends ClinicListAttribute {
   String? get photo;
   @override
   String? get userId;
+  @override
+  double? get rating;
   @override
   @JsonKey(ignore: true)
   _$$_ClinicListAttributeCopyWith<_$_ClinicListAttribute> get copyWith =>
