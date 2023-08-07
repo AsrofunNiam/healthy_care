@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/home/home_page.dart';
+import 'package:healthy_care/src/app/view/page/schedule/Schedule_page.dart';
 import 'package:healthy_care/src/app/view/page/setting/setting-page.dart';
 import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 
@@ -8,7 +9,7 @@ class NavBarRootsMain extends StatefulWidget {
   const NavBarRootsMain._({required this.user});
   final Authentication user;
 
-  static Route<bool?> route({
+  static Route<bool?> prepare({
     Authentication? user,
   }) {
     return MaterialPageRoute(builder: (context) {
@@ -39,7 +40,7 @@ class _NavBarRootsMainState extends State<NavBarRootsMain> {
     final _screens = [
       HomePage(user: widget.user),
       SettingPage(user: widget.user),
-      const WelcomePage(),
+      const SchedulePage(),
       SettingPage(user: widget.user),
     ];
     return Scaffold(

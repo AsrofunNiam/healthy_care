@@ -2,11 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_care/src/app/bloc/create_user/create_user_bloc.dart';
-import 'package:healthy_care/src/app/view/page/home/home_page.dart';
 import 'package:healthy_care/src/app/view/page/login/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+  static Route<void> route() {
+    return MaterialPageRoute(
+      builder: (context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => CreateUserBloc(),
+          ),
+        ],
+        child: const SignUpPage(),
+      ),
+    );
+  }
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -174,10 +185,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const LoginPage();
-                        }));
+                        Navigator.push(context, LoginPage.route(context));
                       },
                       child: const Text(
                         'Log In',

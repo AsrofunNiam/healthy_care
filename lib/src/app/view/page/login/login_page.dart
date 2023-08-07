@@ -9,6 +9,21 @@ import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+  static Route<void> route(BuildContext context) {
+    return MaterialPageRoute(
+      builder: (context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => LoginBloc(),
+          ),
+          // BlocProvider(
+          //   create: (_) => CageAddressBloc(),
+          // ),
+        ],
+        child: const LoginPage(),
+      ),
+    );
+  }
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -39,14 +54,12 @@ class _LoginPageState extends State<LoginPage> {
           success: (user) {
             if (user!.authentication.isNotEmpty) {
               UserRepository.instance.saveUserRepository(user.authentication);
-              Navigator.push(context, NavBarRootsMain.route(user: user));
-              // Navigator.push(context, HomeRestaurant.route(user: user));
+              Navigator.push(context, NavBarRootsMain.prepare(user: user));
             }
           },
         );
       },
       child: Scaffold(
-        // color: Colors.white,
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
@@ -108,10 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                     child: InkWell(
                       onTap: () {
                         getLogin();
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return const HomeScreen();
-                        // }));
                       },
                       child: const Padding(
                           padding: EdgeInsets.symmetric(
@@ -141,10 +150,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const SignUpPage();
-                        }));
+                        Navigator.push(context, SignUpPage.route());
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return const SignUpPage();
+                        // }));
                       },
                       child: const Text(
                         'Create Account',

@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthy_care/src/app/bloc/theme_mode_bloc/theme_mode_bloc.dart';
 import 'package:healthy_care/src/app/view/page/login/login_page.dart';
 import 'package:healthy_care/src/app/view/page/navbar_roots_main.dart';
 import 'package:healthy_care/src/app/view/page/sign_up/sign_up_page.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/navbar_roots.dart';
-import 'package:healthy_care/src/app/view/page/widget_test/signup_screen.dart';
 import 'package:healthy_care/src/app/view/page/theme_mode_switch.dart';
 
 class WelcomeScreenTest extends StatelessWidget {
   const WelcomeScreenTest({
     super.key,
   });
+
+  static Widget prepare() {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeModeBloc(),
+        ),
+      ],
+      child: const WelcomeScreenTest(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +37,7 @@ class WelcomeScreenTest extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) {
-                    // return const NavBarRootsMain();
-                    // }));
+                    // Navigator.push(context, NavBarRootsMain.prepare());
                   },
                   child: const Text(
                     'SKIP',
@@ -77,9 +85,10 @@ class WelcomeScreenTest extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const SignUpPage();
-                  }));
+                  Navigator.push(context, SignUpPage.route());
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //   return const SignUpPage();
+                  // }));
                 },
                 child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
@@ -97,9 +106,7 @@ class WelcomeScreenTest extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const LoginPage();
-                  }));
+                  Navigator.push(context, LoginPage.route(context));
                 },
                 child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
