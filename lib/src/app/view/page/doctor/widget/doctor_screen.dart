@@ -180,25 +180,25 @@ class _DoctorScreenState extends State<DoctorScreen> {
                   ),
                 ],
               ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(vertical: 18),
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(235, 126, 133, 240),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: const Center(
-                    child: Text(
-                      'Booking Appointment',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ),
-              )
+              // InkWell(
+              //   onTap: () {},
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     padding: const EdgeInsets.symmetric(vertical: 18),
+              //     decoration: BoxDecoration(
+              //         color: const Color.fromARGB(235, 126, 133, 240),
+              //         borderRadius: BorderRadius.circular(10)),
+              //     child: const Center(
+              //       child: Text(
+              //         'Booking Appointment',
+              //         style: TextStyle(
+              //             color: Colors.white,
+              //             fontSize: 20,
+              //             fontWeight: FontWeight.w500),
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ))
