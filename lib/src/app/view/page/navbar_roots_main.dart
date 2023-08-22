@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_care/src/app/model/authentication.dart';
 import 'package:healthy_care/src/app/view/page/home/home_page.dart';
-import 'package:healthy_care/src/app/view/page/schedule/Schedule_page.dart';
+import 'package:healthy_care/src/app/view/page/schedule/schedule_page.dart';
 import 'package:healthy_care/src/app/view/page/setting/setting-page.dart';
-import 'package:healthy_care/src/app/view/page/welcome/welcome_page.dart';
 
 class NavBarRootsMain extends StatefulWidget {
   const NavBarRootsMain._({required this.user});
@@ -34,10 +33,11 @@ class NavBarRootsMain extends StatefulWidget {
 }
 
 class _NavBarRootsMainState extends State<NavBarRootsMain> {
+  final int _selectedIndex = 0;
   @override
+    
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-    final _screens = [
+    final screens = [
       HomePage(user: widget.user),
       SettingPage(user: widget.user),
       const SchedulePage(),
@@ -45,7 +45,7 @@ class _NavBarRootsMainState extends State<NavBarRootsMain> {
     ];
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: _screens[_selectedIndex],
+      body: screens[_selectedIndex],
       bottomNavigationBar: SizedBox(
         height: 80,
         child: BottomNavigationBar(
@@ -56,11 +56,12 @@ class _NavBarRootsMainState extends State<NavBarRootsMain> {
             selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
             onTap: (value) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return _screens[value];
+                return screens[value];
               }));
             },
             items: const [
               BottomNavigationBarItem(
+                
                   icon: Icon(Icons.home_filled), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.chat_bubble_outline), label: 'Message'),

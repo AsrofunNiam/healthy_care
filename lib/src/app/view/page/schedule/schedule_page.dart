@@ -9,10 +9,7 @@ class SchedulePage extends StatelessWidget {
     return Material(
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(
-            top: 30,
-            left: 10,
-          ),
+          padding: const EdgeInsets.only(top: 30),
           child: ScheduleScreen.prepare(),
         ),
       ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthy_care/src/app/bloc/theme_mode_bloc/theme_mode_bloc.dart';
+import 'package:healthy_care/src/app/view/page/doctor/doctor_page.dart';
+import 'package:healthy_care/src/app/view/page/doctor/widget/doctor_screen.dart';
 import 'package:healthy_care/src/app/view/page/login/login_page.dart';
-import 'package:healthy_care/src/app/view/page/schedule/Schedule_page.dart';
 import 'package:healthy_care/src/app/view/page/schedule/widget/schedule_screen.dart';
 import 'package:healthy_care/src/app/view/page/sign_up/sign_up_page.dart';
 import 'package:healthy_care/src/app/view/page/theme_mode_switch.dart';
@@ -51,7 +52,7 @@ class WelcomeScreenTest extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return ScheduleScreen.prepare();
+                        return const DoctorPage();
                       },
                     ));
                   },
